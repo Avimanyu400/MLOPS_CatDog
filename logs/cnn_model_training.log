@@ -1,0 +1,38 @@
+Training started successfully.
+2026-08-01 19:24:52,605 - INFO - Epoch 1/10  train_loss=0.5969  val_loss=0.5558  val_acc=0.7146
+2026-08-01 19:25:25,052 - INFO - Epoch 2/10  train_loss=0.4976  val_loss=0.4911  val_acc=0.7647
+2026-08-01 19:26:02,359 - INFO - Epoch 3/10  train_loss=0.4436  val_loss=0.4207  val_acc=0.8079
+2026-08-01 19:26:38,944 - INFO - Epoch 4/10  train_loss=0.4041  val_loss=0.5490  val_acc=0.7327
+2026-08-01 19:27:15,907 - INFO - Epoch 5/10  train_loss=0.3714  val_loss=0.4549  val_acc=0.7949
+2026-08-01 19:27:52,867 - INFO - Epoch 6/10  train_loss=0.3431  val_loss=0.3872  val_acc=0.8138
+Training started successfully.
+Training started successfully.
+2026-08-01 19:57:57,555 - INFO - Running experiment 'dog-cat-classification' with epochs=10, batch_size=32 and learning_rate=0.001
+2026-08-01 19:58:23,766 - INFO - Epoch 1/10  train_loss=0.6235  val_loss=0.6944  val_acc=0.5967
+2026-08-01 19:58:54,033 - INFO - Epoch 2/10  train_loss=0.5226  val_loss=0.4936  val_acc=0.7746
+2026-08-01 20:00:06,375 - INFO - Epoch 3/10  train_loss=0.4722  val_loss=0.7062  val_acc=0.6780
+2026-08-01 20:00:48,076 - INFO - Epoch 4/10  train_loss=0.4340  val_loss=0.4631  val_acc=0.7970
+2026-08-01 20:01:27,384 - INFO - Epoch 5/10  train_loss=0.4045  val_loss=0.5272  val_acc=0.7650
+2026-08-01 20:02:07,515 - INFO - Epoch 6/10  train_loss=0.3820  val_loss=0.3920  val_acc=0.8242
+2026-08-01 20:02:49,158 - INFO - Epoch 7/10  train_loss=0.3613  val_loss=0.3747  val_acc=0.8349
+2026-08-01 20:04:00,773 - INFO - Epoch 8/10  train_loss=0.3377  val_loss=0.3750  val_acc=0.8309
+2026-08-01 20:04:52,707 - INFO - Epoch 9/10  train_loss=0.3188  val_loss=0.3653  val_acc=0.8357
+2026-08-01 20:05:33,168 - INFO - Epoch 10/10  train_loss=0.2995  val_loss=0.4241  val_acc=0.8341
+2026-08-01 20:05:37,639 - INFO - Confusion matrix saved to reports/figures/cnn_confusion_matrix.png
+2026-08-01 20:05:47,310 - INFO - Test metrics:
+2026-08-01 20:05:47,311 - INFO - Model saved to models\cnn_baseline.pt
+Training started successfully.
+2026-08-01 20:13:47,344 - INFO - Running experiment 'dog-cat-classification' with epochs=10, batch_size=32 and learning_rate=0.001
+2026-08-01 20:14:42,139 - INFO - Epoch 1/10  train_loss=0.5878  val_loss=0.5620  val_acc=0.7290
+2026-08-01 20:15:23,985 - INFO - Epoch 2/10  train_loss=0.4763  val_loss=0.4589  val_acc=0.7813
+2026-08-01 20:16:05,986 - INFO - Epoch 3/10  train_loss=0.4197  val_loss=0.4428  val_acc=0.7973
+2026-08-01 20:16:43,786 - INFO - Epoch 4/10  train_loss=0.3839  val_loss=0.3917  val_acc=0.8322
+2026-08-01 20:17:23,397 - INFO - Epoch 5/10  train_loss=0.3489  val_loss=0.3605  val_acc=0.8389
+2026-08-01 20:18:05,615 - INFO - Epoch 6/10  train_loss=0.3160  val_loss=0.3633  val_acc=0.8426
+2026-08-01 20:18:51,487 - INFO - Epoch 7/10  train_loss=0.2948  val_loss=0.3531  val_acc=0.8416
+2026-08-01 20:19:36,471 - INFO - Epoch 8/10  train_loss=0.2711  val_loss=0.5331  val_acc=0.8010
+2026-08-01 20:20:53,761 - INFO - Epoch 9/10  train_loss=0.2454  val_loss=0.3686  val_acc=0.8464
+2026-08-01 20:21:53,546 - INFO - Epoch 10/10  train_loss=0.2213  val_loss=0.3578  val_acc=0.8557
+2026-08-01 20:21:54,518 - INFO - Loss Curve saved to reports/figures/cnn_loss_curves.png
+2026-08-01 20:21:58,070 - INFO - Confusion matrix saved to reports/figures/cnn_confusion_matrix.png
+2026-08-01 20:22:09,597 - INFO - Model saved to models\cnn_baseline.pt

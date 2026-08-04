@@ -1,0 +1,25 @@
+schema: '2.0'
+stages:
+  data_prep:
+    cmd: python src/data_prep.py --img-size 64 --val-split 0.15 --test-split 
+      0.15
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 06362586bcc0e58241025d5d6d1a12ef.dir
+      size: 848849774
+      nfiles: 24997
+    - path: src/data_prep.py
+      hash: md5
+      md5: 7cedb23a530f9370887f5387225ef7c4
+      size: 3323
+    params:
+      params.yaml:
+        img_size: 64
+        test_split: 0.15
+        val_split: 0.15
+    outs:
+    - path: data/processed/dataset.npz
+      hash: md5
+      md5: 36bd39ea9186a002f12c57d5f1c773cb
+      size: 272690282

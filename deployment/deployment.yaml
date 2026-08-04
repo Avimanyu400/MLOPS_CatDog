@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cat-dog-classification-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cat-dog-classification-api
+  template:
+    metadata:
+      labels:
+        app: cat-dog-classification-api
+    spec:
+      containers:
+      - name: cat-dog-classification-api-container
+        image: cat-dog-classification-api:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        # Kubernetes Liveness Probe
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 20
+        # Kubernetes Readiness Probe
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 10

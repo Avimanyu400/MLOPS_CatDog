@@ -1,0 +1,27 @@
+# Data (tracked by DVC instead, not Git)
+/data/raw/*
+/data/processed/*
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
+
+# MLflow local tracking store (each collaborator has their own run history;
+# for team-shared tracking, point MLFLOW_TRACKING_URI at a remote server instead)
+mlruns/
+
+# Trained model binaries (large; DVC/Git-LFS is a better fit than plain Git)
+models/*.pt
+models/*.pkl
+models/*.h5
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+.vscode/
+mlflow.db

@@ -1,0 +1,12 @@
+stages:
+  data_prep:
+    cmd: python src/data_prep.py --img-size 64 --val-split 0.15 --test-split 0.15
+    deps:
+      - src/data_prep.py
+      - data/raw
+    outs:
+      - data/processed/dataset.npz
+    params:
+      - img_size
+      - val_split
+      - test_split

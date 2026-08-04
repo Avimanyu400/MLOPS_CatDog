@@ -1,0 +1,20 @@
+Training started successfully.
+Training started successfully.
+Training started successfully.
+Training started successfully.
+2026-08-01 19:58:48,070 - INFO - Running experiment 'dog-cat-classification' with C=1.0 and max_iter=200
+2026-08-01 19:59:18,226 - INFO - Confusion Matrix saved to reports/figures/logreg_confusion_matrix.png
+Training started successfully.
+2026-08-01 20:02:59,564 - INFO - Running experiment 'dog-cat-classification' with C=1.0 and max_iter=200
+2026-08-01 20:03:34,583 - INFO - Confusion Matrix saved to reports/figures/logreg_confusion_matrix.png
+2026-08-01 20:04:35,323 - INFO - Test metrics:
+2026-08-01 20:04:35,323 - INFO - Model saved to models\logreg_baseline.pkl
+Training started successfully.
+2026-08-01 20:13:58,194 - INFO - Running experiment 'dog-cat-classification' with C=1.0 and max_iter=200
+2026-08-01 20:14:25,094 - INFO - Confusion Matrix saved to reports/figures/logreg_confusion_matrix.png
+2026-08-01 20:15:15,542 - INFO - Model saved to models\logreg_baseline.pkl
+Training started successfully.
+2026-08-01 20:19:59,277 - INFO - Running experiment 'dog-cat-classification' with C=1.0 and max_iter=300
+2026-08-01 20:20:45,456 - INFO - Confusion Matrix saved to reports/figures/logreg_confusion_matrix.png
+2026-08-01 20:21:48,842 - INFO - Test Metrics -> test_accuracy: 0.5929581221659109, test_precision: 0.6033898305084746, test_recall: 0.5644820295983086, test_f1: 0.5832878208629164
+2026-08-01 20:21:48,845 - INFO - Model saved to models\logreg_baseline.pkl
