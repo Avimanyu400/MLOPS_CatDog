@@ -11,8 +11,8 @@ stages:
       nfiles: 24997
     - path: src/data_prep.py
       hash: md5
-      md5: 7cedb23a530f9370887f5387225ef7c4
-      size: 3323
+      md5: 5c27d741d65e9daf9d552f5c4b9d2863
+      size: 3344
     params:
       params.yaml:
         img_size: 64
