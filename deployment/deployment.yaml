@@ -18,6 +18,14 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
+        # Resource requests and limits added to prevent noisy neighbor issues
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
         # Kubernetes Liveness Probe
         livenessProbe:
           httpGet:
