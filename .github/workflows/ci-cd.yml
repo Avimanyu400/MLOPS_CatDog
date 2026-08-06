@@ -28,9 +28,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run unit tests
+        env:
+          LOG_DIR: "logs"  # <-- Provide a fallback or expected value here
         run: |
           PYTHONPATH=. pytest tests/ -v --junitxml=test-results.xml
-
+          
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
