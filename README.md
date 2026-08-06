@@ -11,15 +11,10 @@ Implements:
 - **Data versioning**: DVC for `data/raw` (source images) and a DVC pipeline stage for
   `data/processed` (preprocessed numpy arrays).
 
-> **Note on this repo as delivered**: `data/raw/{Cat,Dog}` currently contains small
-> synthetic placeholder images (generated in-repo) so the full pipeline could be
-> validated end-to-end without network access to Kaggle. Swap in the real dataset
-> (same folder layout) before training for real — no code changes needed.
-
 ## Project structure
 
 ```
-dog-cat-classifier/
+MLOPS_CatDog/
 ├── data/
 │   ├── raw/              # Cat/, Dog/ — DVC-tracked source images
 │   └── processed/        # dataset.npz — DVC-pipeline output (preprocessed arrays)
@@ -38,25 +33,17 @@ dog-cat-classifier/
 
 ## Setup environment
 
-```bash
+```
 python -m venv .venv && source .venv/lib/activate
 pip install -r requirements.txt
 pip install --upgrade pip
 ```
-
-## 1. Get the real data
-
-Download the Kaggle dataset (requires a free Kaggle account + API token):
-
-```bash
-pip install kaggle
 
 # Download dataset from kaggle and store under below paths:
 data/raw/Cat/ 
 data/raw/Dog/ 
 ```
  
-
 ## 2. Preprocess (via DVC pipeline)
 
 ```bash
@@ -86,7 +73,10 @@ to `models/`.
 mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
 Then open http://localhost:5000 to compare runs, params, metrics, and artifacts
-(confusion matrix images, loss curve plots, serialized models).
+
+# Verify the confusion matrix images, loss curve plots
+# Reports are stored under reports/figures/
+ 
 
 ## 5. Data versioning with DVC
 
@@ -103,11 +93,7 @@ dvc push
 dvc pull
 ```
 
-The DVC remote is currently set to a local path (`dvc remote list`). For a real
-team setup, repoint it at shared storage, e.g.:
-```bash
-dvc remote modify local_storage url s3://your-bucket/dvc-storage
-```
+The DVC remote is currently set to a local path (`dvc remote list`). 
 
 ## Git workflow
 
@@ -119,13 +105,44 @@ in Git. Large binary data (`data/raw`, `data/processed`) and trained models are
 tracked by DVC / left out of Git per `.gitignore` — only their lightweight `.dvc`
 pointer files live in Git, keeping the repo small while data stays reproducible.
 
-## Results (synthetic placeholder data — for pipeline validation only)
+#  Start Uvicorn API gateway
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
-| Model | Test Accuracy | Test F1 |
-|---|---|---|
-| Logistic Regression | 1.00 | 1.00 |
-| Simple CNN | 1.00 | 1.00 |
+# To test /predict endpoint
+python .\src\test_api.py
 
-These are trivially perfect because the placeholder images have an easy synthetic
-color signal baked in — they only prove the pipeline runs end-to-end. Expect the
-CNN to meaningfully outperform logistic regression on the real photographic dataset.
+# To test /health endpoint
+http://localhost:8000/health
+
+# Environment specification
+
+pip freeze > requirements.txt
+
+# Docker container build
+docker build -t cat-dog-classification-api:v1
+
+# Run Docker
+docker run -p 8080:8080 cat-dog-classification-api:v1
+
+# Start Minikunbe
+minikube start  --driver=docker
+
+# check minikube status
+minikube status
+
+kubectl cluster-info
+kubectl get node
+minikube docker-env
+
+# Unit testing using Pytest
+pytest
+
+# Github action
+create file .github/workflows/ci-cd.yml
+
+# Push the changes to github to trigger github action workflows
+git add src/train_cnn.py
+git commit -m "Fix cross-platform log path in train_cnn.py for CI/CD runners"
+git push origin main
+
+# Now verify the github action in github web browser. Both workflows should be completed successfully.
