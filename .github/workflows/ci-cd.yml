@@ -1,4 +1,4 @@
-workflow_content = """name: CI/CD - Build, Test, Containerize & Publish
+name: CI/CD - Build, Test, Containerize & Publish
 
 on:
   push:
@@ -80,10 +80,3 @@ jobs:
 
       - name: Image digest
         run: echo "Pushed image with tags ${{ steps.meta.outputs.tags }}"
-"""
-
-import os
-os.makedirs(".github/workflows", exist_ok=True)
-with open(".github/workflows/ci-cd.yml", "w") as f:
-    f.write(workflow_content)
-print("Successfully created .github/workflows/ci.yml")
