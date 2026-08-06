@@ -25,22 +25,20 @@ from torch.utils.data import DataLoader, Dataset
 from utils import load_processed_data, plot_confusion_matrix, plot_loss_curves
 import logging
 import os
+from pathlib import Path
 
-# Define your log file path
-log_file_path = r"D:\MLOPS_CatDog\logs\cnn_model_training.log"
+# Define a safe cross-platform log directory and file path
+# This creates a 'logs' directory in your project root regardless of OS
+BASE_DIR = Path(__file__).resolve().parent.parent
+log_dir = BASE_DIR / "logs"
+log_file_path = log_dir / "cnn_model_training.log"
 
-# 1. Extract the directory path from the full file path
-log_dir = os.path.dirname(log_file_path)
-
-# 2. Check and create the directory if it doesn't exist
+# 1. Ensure the directory exists
 os.makedirs(log_dir, exist_ok=True)
 
-# 3. Open (or create) the log file for writing
+# 2. Open (or create) the log file for writing
 with open(log_file_path, "a") as f:
     f.write("Training started successfully.\n")
-
-print(f"Log path verified/created at: {log_file_path}")
-
 
 # Configure logging
 logging.basicConfig(
